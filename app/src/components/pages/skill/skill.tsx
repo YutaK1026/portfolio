@@ -6,12 +6,13 @@ interface SkillProps {
 }
 
 export default function Skill({name, description}: SkillProps) {
+    const src:string = `/props/skill/${name}.png`
     return (
         <div className="rounded-md max-w-sm overflow-hidden shadow-lg m-2">
             <div className="flex items-center justify-center">
                 <Image
                     className='m-3'
-                    src="/example.png" 
+                    src={src}
                     width={100}
                     height={100}
                     alt="hoge"
