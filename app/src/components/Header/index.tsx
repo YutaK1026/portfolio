@@ -15,10 +15,8 @@ export default function Header() {
   };
 
   return (
-    <header className="py-6 px-4 flex justify-between items-center">
-      <Link className="z-50" href="/about" onClick={handleMenuClose}>
-        <Image src={Icon} width={60} height={60} alt="Icon" />
-      </Link>
+    <header className="p-6 flex justify-between items-center">
+      <br></br>
       <nav
         className={
           isOpen
