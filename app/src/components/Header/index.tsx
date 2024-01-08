@@ -1,10 +1,12 @@
-"use client";
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import Icon from "../../../public/icon.jpg"
+import { usePathname } from 'next/navigation'
+
 
 export default function Header() {
+  const pathname = usePathname()
   const [isOpen, setOpen] = useState<boolean>(false);
   const handleMenuOpen = () => {
     setOpen(!isOpen);
@@ -13,6 +15,7 @@ export default function Header() {
   const handleMenuClose = () => {
     setOpen(false);
   };
+  
 
   return (
     <header className="p-6 flex justify-between items-center">
@@ -32,24 +35,40 @@ export default function Header() {
           }
         >
           <li>
+            {pathname=="/about" ?
+            <Link onClick={handleMenuClose} href="/about" className="text-green-700 font-extrabold">
+              About
+            </Link> : 
             <Link onClick={handleMenuClose} href="/about">
               About
-            </Link>
+            </Link>}
           </li>
           <li>
+            {pathname=="/works" ?
+            <Link onClick={handleMenuClose} href="/works" className="text-green-700 font-extrabold">
+              Works
+            </Link> : 
             <Link onClick={handleMenuClose} href="/works">
               Works
-            </Link>
+            </Link>}
           </li>
           <li>
+            {pathname=="/skill" ?
+            <Link onClick={handleMenuClose} href="/skill" className="text-green-700 font-extrabold">
+              Skill
+            </Link> : 
             <Link onClick={handleMenuClose} href="/skill">
               Skill
-            </Link>
+            </Link>}
           </li>
           <li>
+            {pathname=="/contact" ?
+            <Link onClick={handleMenuClose} href="/contact" className="text-green-700 font-extrabold">
+              Contact
+            </Link> : 
             <Link onClick={handleMenuClose} href="/contact">
               Contact
-            </Link>
+            </Link>}
           </li>
         </ul>
       </nav>

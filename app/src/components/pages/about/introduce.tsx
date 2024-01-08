@@ -35,7 +35,7 @@ export default function Introduce() {
                         <div className="flex m-1">
                             <Image
                                 src="/props/about/qiita.png"
-                                alt="github"
+                                alt="qiita"
                                 width={25}
                                 height={25}
                                 style={icon_style}
@@ -49,7 +49,7 @@ export default function Introduce() {
                         <div className="flex m-1">
                             <Image
                                 src="/props/about/twitter.png"
-                                alt="github"
+                                alt="twitter"
                                 width={25}
                                 height={25}
                                 style={icon_style}
@@ -63,7 +63,7 @@ export default function Introduce() {
                         <div className="flex m-1">
                             <Image
                                 src="/props/about/jack.png"
-                                alt="github"
+                                alt="jack"
                                 width={25}
                                 height={25}
                                 style={icon_style}

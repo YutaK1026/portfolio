@@ -1,8 +1,12 @@
+'use client'
 import Image from 'next/image'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Introduce from '@/components/pages/about/introduce'
+import { usePathname } from 'next/navigation'
+
 export default function AboutPage() {
+  const pathname = usePathname()
   const src: string = "/props/about/home.jpg"
   const imageStyle = {
     borderRadius: '2%',
