@@ -33,9 +33,9 @@ export default function SkillPage() {
         - Frontend
       </p>
       <div className="grid grid-cols-3 content-center">
-        {frontend.map((item:SkillProps) => {
+        {frontend.map((item:SkillProps, index) => {
           return( 
-            <div className="grid-item">
+            <div  key={index} className="grid-item">
               <Skill  name={item.name} 
                       description={item.description}
               />
@@ -47,9 +47,9 @@ export default function SkillPage() {
         - Backend
       </p>
       <div className="grid grid-cols-3 content-center">
-        {backend.map((item:SkillProps) => {
+        {backend.map((item:SkillProps, index) => {
           return( 
-            <div className="grid-item">
+            <div  key={index} className="grid-item">
               <Skill  name={item.name} 
                       description={item.description}
               />
@@ -61,9 +61,9 @@ export default function SkillPage() {
         - Others
       </p>
       <div className="grid grid-cols-3 content-center">
-        {others.map((item:SkillProps) => {
+        {others.map((item:SkillProps, index) => {
           return( 
-            <div className="grid-item">
+            <div  key={index} className="grid-item">
               <Skill  name={item.name} 
                       description={item.description}
               />

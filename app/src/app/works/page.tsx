@@ -21,9 +21,9 @@ export default function WorkPage() {
         {title}
       </div>
       <div className="grid grid-cols-2 content-center">
-        {works.map((item:WorkProps) => {
+        {works.map((item:WorkProps, index) => {
           return( 
-            <div className="grid-item flex mx-auto">
+            <div  key={index} className="grid-item flex mx-auto">
               <Work 
                 name={item.name} 
                 description={item.description}
