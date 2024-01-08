@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 
 export default function AboutPage() {
   const pathname = usePathname()
-  const src: string = "/props/about/home.jpg"
+  const src: string = "/props/about/home.webp"
   const imageStyle = {
     borderRadius: '2%',
     border: '1px solid #fff',

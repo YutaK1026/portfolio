@@ -19,7 +19,7 @@ export default function Introduce() {
                     <div>
                         <div className="flex m-1">
                             <Image
-                                src="/props/about/github.png"
+                                src="/props/about/github.webp"
                                 alt="github"
                                 width={25}
                                 height={25}
@@ -34,7 +34,7 @@ export default function Introduce() {
                         
                         <div className="flex m-1">
                             <Image
-                                src="/props/about/qiita.png"
+                                src="/props/about/qiita.webp"
                                 alt="qiita"
                                 width={25}
                                 height={25}
@@ -48,7 +48,7 @@ export default function Introduce() {
                         </div>
                         <div className="flex m-1">
                             <Image
-                                src="/props/about/twitter.png"
+                                src="/props/about/twitter.webp"
                                 alt="twitter"
                                 width={25}
                                 height={25}
@@ -62,7 +62,7 @@ export default function Introduce() {
                         </div>
                         <div className="flex m-1">
                             <Image
-                                src="/props/about/jack.png"
+                                src="/props/about/jack.webp"
                                 alt="jack"
                                 width={25}
                                 height={25}

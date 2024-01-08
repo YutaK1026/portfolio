@@ -6,7 +6,7 @@ interface SkillProps {
 }
 
 export default function Skill({name, description}: SkillProps) {
-    const src:string = `/props/skill/${name}.png`
+    const src:string = `/props/skill/${name}.webp`
     return (
         <div className="rounded-md max-w-sm overflow-hidden shadow-lg m-2">
             <div className="flex items-center justify-center">
