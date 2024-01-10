@@ -5,8 +5,6 @@ import Header from '@/components/Header'
 import { useRouter } from "next/navigation";
 
 const inter = Inter({ subsets: ['latin'] })
-// const router = useRouter();
-const router = "a"
 export default function RootLayout({
   children,
 }: {
