@@ -21,7 +21,7 @@ export const Typing = ({handleFinish}: {handleFinish:()=>void}) => {
         () => {
           handleFinish()
         },
-        1000,
+        1000
       ]}
         speed={90}
         style={{ 

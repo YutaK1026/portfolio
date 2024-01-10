@@ -2,20 +2,23 @@ import MySQLConsoleInput from "./input";
 import { useState } from 'react';
 import {Typing} from "./typing";
 
-
 export default function TypingPage(){
-    const [isFinish, setIsFinish] = useState<boolean>(false);
+    const [domList, setDomList] = useState<React.JSX.Element[]>([
+        <Typing handleFinish={handleFinish}/>
+    ]);
 
-    function handleFinish(){
-        setIsFinish(true)
-        console.log("finish")
+    function handleSubmitCommand(){
+        // mysql > の時にコマンドを入力して送信したときの処理
+        setDomList((domList) => [...domList, <MySQLConsoleInput handleSubmitCommand={handleSubmitCommand}/>])
     }
 
+    function handleFinish(){
+        setDomList((domList) => [...domList, <MySQLConsoleInput handleSubmitCommand={handleSubmitCommand}/>])
+    }
+    
     return(
         <div>
-          <Typing handleFinish={handleFinish}/>
-          {isFinish == true ? <MySQLConsoleInput/> : <div></div>}
-          
+          {domList}
         </div>
     )
 }
