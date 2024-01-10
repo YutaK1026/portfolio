@@ -7,7 +7,7 @@ interface WorkProps {
     url: string | undefined
 }
 
-export default function Work({name, description, url}: WorkProps) {
+export default function Works({name, description, url}: WorkProps) {
     const src:string = `/props/work/${name}.webp`
     return (
         <div className="rounded-md max-w-sm overflow-hidden shadow-lg m-2">

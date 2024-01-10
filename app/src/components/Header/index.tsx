@@ -36,37 +36,53 @@ export default function Header() {
         >
           <li>
             {pathname=="/about" ?
-            <Link onClick={handleMenuClose} href="/about" className="text-green-700 font-extrabold">
-              About
+            <Link onClick={handleMenuClose} href="/about" className="">
+              <button className="bg-white">
+                <p className="text-green-700 font-extrabold">
+                  About 
+                </p>
+              </button>
             </Link> : 
-            <Link onClick={handleMenuClose} href="/about">
+            <Link onClick={handleMenuClose} href="/about" className="hover:bg-slate-100">
               About
             </Link>}
           </li>
           <li>
             {pathname=="/works" ?
             <Link onClick={handleMenuClose} href="/works" className="text-green-700 font-extrabold">
-              Works
+              <button className="bg-white">
+                <p className="text-green-700 font-extrabold">
+                  Work 
+                </p>
+              </button>
             </Link> : 
-            <Link onClick={handleMenuClose} href="/works">
+            <Link onClick={handleMenuClose} href="/works" className="hover:bg-slate-100">
               Works
             </Link>}
           </li>
           <li>
             {pathname=="/skill" ?
             <Link onClick={handleMenuClose} href="/skill" className="text-green-700 font-extrabold">
-              Skill
+              <button className="bg-white">
+                <p className="text-green-700 font-extrabold">
+                  Skill
+                </p>
+              </button>
             </Link> : 
-            <Link onClick={handleMenuClose} href="/skill">
+            <Link onClick={handleMenuClose} href="/skill" className="hover:bg-slate-100">
               Skill
             </Link>}
           </li>
           <li>
             {pathname=="/contact" ?
             <Link onClick={handleMenuClose} href="/contact" className="text-green-700 font-extrabold">
-              Contact
+              <button className="bg-white">
+                <p className="text-green-700 font-extrabold">
+                  Contact
+                </p>
+              </button>
             </Link> : 
-            <Link onClick={handleMenuClose} href="/contact">
+            <Link onClick={handleMenuClose} href="/contact" className="hover:bg-slate-100">
               Contact
             </Link>}
           </li>
