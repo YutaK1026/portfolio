@@ -2,15 +2,13 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
-export default function MySQLConsoleInput({handleSubmitCommand}: {handleSubmitCommand:()=>void}){
+export default function MySQLConsoleInput({handleSubmitCommand}: {handleSubmitCommand:(value: string)=>void}){
     const [text, setText] = useState("");
     const handleSubmit = (
         e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLInputElement>,
     ) => {
-        // 入力値の判定はここで行いましょう。
         const value: string = (e.target as HTMLInputElement).value
-        handleSubmitCommand()
-        console.log(value)
+        handleSubmitCommand(value)
     }
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.nativeEvent.isComposing || e.key !== 'Enter') return
