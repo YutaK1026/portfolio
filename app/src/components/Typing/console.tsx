@@ -1,4 +1,6 @@
 import { useRef } from "react"
+import { Ref } from "react"
+import { forwardRef } from 'react';
 
 interface ConsoleProps{
     text: string
@@ -7,20 +9,18 @@ interface ConsoleProps{
     is_disable: boolean
 }
 
-export default function Console({text="", handleKeyDown, setText, is_disable}: ConsoleProps):React.JSX.Element {
-    // const inputRef = useRef<HTMLInputElement>(null)
-
+function consoleComponent({text, handleKeyDown, setText, is_disable}: ConsoleProps, ref: Ref<HTMLInputElement>):React.JSX.Element {
     return(
     <input 
         className='bg-slate-900 text-white'
         value={text}
         onKeyDown={handleKeyDown}
         onChange={(event) => setText(event.target.value)}
-        // ref = {inputRef}
+        ref = {ref}
         style={{
             outline: "none",
             border: "none",
         }}
-        // disabled={is_disable}
     />)
 }
+export const Console = forwardRef<HTMLInputElement, ConsoleProps>(consoleComponent)
