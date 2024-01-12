@@ -1,8 +1,4 @@
-export default function CommandNotFoundTable(name: string): React.JSX.Element{
+export default function CommandNotFoundTable(name: string): string{
     const table_name = name
-    return(
-        <div>
-            ERROR 1049 (42000): Unknown table {table_name}
-        </div>
-    )
+    return(`ERROR 1049 (42000): Unknown table ${table_name}`)
 }

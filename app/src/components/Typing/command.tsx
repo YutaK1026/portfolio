@@ -43,7 +43,7 @@ export default class Command {
     constructor(command: string){
         this.command = command
     }
-    action(): React.JSX.Element | string{
+    action(): string{
 
         //TODO: this.commandに<>[]のいずれかが入っている場合強制的に退避
         //TODO: 日本語入力された場合退避
@@ -83,10 +83,10 @@ export default class Command {
         return new_dom
         
     }
-    command_not_found(command: string): React.JSX.Element{
+    command_not_found(command: string): string{
         return CommandNotFound(command)
     }
-    command_use(): React.JSX.Element{
+    command_use(): string{
         const word_split: string[] = this.command.split(" ")
         const database_name: string = word_split[1]
         const is_exist: boolean = database_name in database.table
@@ -95,15 +95,15 @@ export default class Command {
         }
         return CommandUse()
     }
-    command_show_databases(): React.JSX.Element{
+    command_show_databases(): string{
         const database_name:string[] = Object.keys(database.table)
         return CommandShowDatabase(database_name)
     }
-    command_show_tables(): React.JSX.Element{
+    command_show_tables(): string{
         const table_name:string[] = Object.keys(database.table.kawachann)
         return CommandShowTables(table_name)
     }
-    command_select(): React.JSX.Element | string{
+    command_select(): string{
         const word_split: string[] = this.command.split(" ")
         if (word_split[word_split.length - 2] != "from") {
             // select から始まるのに[-2]がfromではなかった場合。
@@ -121,7 +121,7 @@ export default class Command {
         
         return CommandNotFound(word_split[1])
     }
-    command_help(): React.JSX.Element {
+    command_help(): string{
         return CommandHelp()
     }
 }

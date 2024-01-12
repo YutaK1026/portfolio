@@ -1,6 +1,6 @@
 "use client"
 import TypingPage from '@/components/Typing'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRef } from 'react'
 import Console from '@/components/Typing/console'
 
@@ -25,12 +25,14 @@ export default function Home() {
       if (e.nativeEvent.isComposing || e.key !== 'Enter') return
       handleSubmit(e)
   }
-
+  useEffect(() => {
+    console.log("page.tsx")
+  },[value])
 
   return(
     <div className="flex justify-center">
       <div className='w-2/3 h-100 bg-slate-900 m-10' onClick={handleClick}>
-        <div className='bg-scroll h-96 m-4 hidden-scrollbar text-white' style={{overflow: "auto"}}>
+        <div className='bg-scroll h-96 m-4 hidden-scrollbar text-white whitespace-pre' style={{overflow: "auto"}}>
           <TypingPage value={value}/>
           <div className="flex">
               <p>mysql {">"}</p>

@@ -1,7 +1,3 @@
-export default function CommandUse(): React.JSX.Element{
-    return(
-        <div>
-            Database changed
-        </div>
-    )
+export default function CommandUse(): string{
+    return(`Database changed`)
 }
