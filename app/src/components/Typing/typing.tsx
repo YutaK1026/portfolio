@@ -7,7 +7,7 @@ export const Typing = ({handleFinish}: {handleFinish:()=>void}) => {
     <TypeAnimation
       cursor = {false}
       sequence={[
-        `bash-4.4# mysql -u kawachann -p portfolio
+        `bash-4.4# mysql -u kawachann -p
         Enter password:_______
         Welcome to the MySQL monitor.  Commands end with ; or \g.
         Your MySQL connection id is 9
