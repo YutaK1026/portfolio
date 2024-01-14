@@ -6,6 +6,13 @@ import { redirect } from 'next/navigation'
 import { Typing } from '@/components/Typing/typing'
 import { Console } from '@/components/Typing/console'
 
+import {JetBrains_Mono} from "next/font/google"
+
+const JetBrainsMonoFont = JetBrains_Mono({
+  weight: "400",
+  subsets: ["latin"],
+});
+
 export default function Home() {
 
   type Address = "about" | "works" | "skill" | "contact"
@@ -68,7 +75,7 @@ export default function Home() {
         if(i > 1){
           i = i - 1
         }
-        if(i > commandList.length){
+        if(i > commandList.length - 1){
           i = commandList.length - 1
         }
         (e.target as HTMLInputElement).value = commandList[i]
@@ -94,25 +101,26 @@ export default function Home() {
 
 
   return(
-    <div className="flex justify-center">
-      <div className='w-2/3 h-100 bg-slate-900 m-10' onClick={handleClick}>
-        <div className='bg-scroll h-96 m-4 hidden-scrollbar text-white whitespace-pre' style={{overflow: "auto"}}>
-          <Typing handleFinish={handleFinish}/>
-          {domList.map((item:string, index:number) => {
-            return(
-                <p className="whitespace-pre-wrap" key = {index}>
-                    {item}
-                </p>
-            )
-          })}
-          {is_finish &&  
-            <div className="flex" ref = {mysql_console_ref}>
-                <p>mysql {">"}</p>
-                <Console text={text} handleKeyDown={handleKeyDown} setText={setText} is_disable={is_disable} ref={input_ref}/>
-            </div>
-          }
+    <div className={`flex justify-center ${JetBrainsMonoFont.className}`}>
+
+        <div className='w-2/3 h-100 bg-slate-900 m-10' onClick={handleClick}>
+          <div className='bg-scroll h-96 m-4 hidden-scrollbar text-white whitespace-pre' style={{overflow: "auto"}}>
+            <Typing handleFinish={handleFinish}/>
+            {domList.map((item:string, index:number) => {
+              return(
+                  <p className="whitespace-pre-wrap" key = {index}>
+                      {item}
+                  </p>
+              )
+            })}
+            {is_finish &&  
+              <div className="flex" ref = {mysql_console_ref}>
+                  <p>mysql {">"}</p>
+                  <Console text={text} handleKeyDown={handleKeyDown} setText={setText} is_disable={is_disable} ref={input_ref}/>
+              </div>
+            }
+          </div>
         </div>
-      </div>
     </div>
   )
 }
