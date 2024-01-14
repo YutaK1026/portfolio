@@ -10,14 +10,16 @@ export default function Home() {
 
   type Address = "about" | "works" | "skill" | "contact"
   
-  const [text, setText] = useState("");
-  const [is_finish, setIsFinish] = useState(false)
-  const [is_disable, setIsDisable] = useState(false)
+  const [text, setText] = useState(""); //入力された文字列を管理
+  const [is_finish, setIsFinish] = useState(false) //Typingが終了したことを判定するフラグ
+  const [is_disable, setIsDisable] = useState(false) //Enterが押された際、その時のConsoleが入力できないようにするためのフラグ
   const [domList, setDomList] = useState<string[]>([""]);
   const [commandList, setCommandList] = useState<string[]>([""]);
   const [is_redirect, setIsRedirect] = useState(false)
   const [value, setValue] = useState<string>("")
   const [address, setAddress] = useState("")
+
+  let i = commandList.length; //矢印↑、↓を押したときの動作を管理するための変数
 
   const mysql_console_ref = useRef<HTMLDivElement>(null)
   const input_ref = useRef<HTMLInputElement>(null)
@@ -52,9 +54,32 @@ export default function Home() {
     input_ref.current.focus()
   }
   
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.nativeEvent.isComposing || e.key !== 'Enter') return
-      handleSubmit(e)
+  const handleKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.nativeEvent.isComposing) return
+      if(e.key == 'Enter'){
+        setCommandList((command_list) => [...command_list, (e.target as HTMLInputElement).value])
+        handleSubmit(e)
+      }
+      
+      if(e.key == "ArrowUp"){
+        if(i > 1){
+          i = i - 1
+        }
+        if(i > commandList.length){
+          i = commandList.length - 1
+        }
+        (e.target as HTMLInputElement).value = commandList[i]
+        // TODO: カーソルを末尾に移動するようにする。
+      }
+      if(e.key == "ArrowDown"){
+        i = i + 1
+        if(i > commandList.length-1){
+          (e.target as HTMLInputElement).value = ""
+        }else{
+          (e.target as HTMLInputElement).value = commandList[i]
+        }
+        // TODO: カーソルを末尾に移動するようにする。
+      }
   }
   if(is_redirect){
     redirect(`./${address}`)
@@ -63,6 +88,7 @@ export default function Home() {
   function handleFinish(){
     setIsFinish(true)
   }
+
 
   return(
     <div className="flex justify-center">
