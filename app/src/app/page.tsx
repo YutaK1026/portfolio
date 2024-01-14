@@ -34,15 +34,18 @@ export default function Home() {
   function handleSubmitCommand(value: string){
     const commnad = new Command(value)
     const new_command: string =  commnad.action()
-    console.log(new_command)
     if((new_command === "about") || (new_command === "works") || (new_command === "skill") || (new_command === "contact")){
-        // stringの時の処理。clearとaddressを想定
         setAddress(new_command)
         setIsRedirect(true)
     }
 
-    setDomList((domList) => [...domList, `mysql > ${value}`])
-    setDomList((domList) => [...domList, new_command])
+    if(new_command === "clear"){
+      setDomList([""]) //clearコマンドが入力された場合、画面をまっさらにする。
+    }else{
+      setDomList((domList) => [...domList, `mysql > ${value}`])
+      setDomList((domList) => [...domList, new_command])
+    }
+
     setTimeout(() => {
       if(!mysql_console_ref.current) return
       mysql_console_ref.current.scrollIntoView()

@@ -6,6 +6,7 @@ import CommandShowTables from "./CommandDom/Show/command_show_tables"
 import CommandNotFoundTable from "./CommandDom/Show/command_not_found_table"
 import CommandRedirect from "./CommandDom/Select/command_redirect"
 import CommandHelp from "./CommandDom/Help/command_help"
+import CommandClear from "./CommandDom/Clear/command_clear"
 
 import { redirect } from 'next/navigation'
 
@@ -77,6 +78,11 @@ export default class Command {
             const new_dom = this.command_help()
             return new_dom
         }
+
+        if (word_split[0] == "clear" && word_split.length == 1){
+            const new_dom = this.command_clear()
+            return new_dom
+        }
         
         // いずれにも該当しない場合
         const new_dom = this.command_not_found(this.command)
@@ -123,5 +129,8 @@ export default class Command {
     }
     command_help(): string{
         return CommandHelp()
+    }
+    command_clear(): string{
+        return CommandClear()
     }
 }
