@@ -35,6 +35,19 @@ export default function Header() {
           }
         >
           <li>
+            {pathname=="/" ?
+            <Link onClick={handleMenuClose} href="/" className="">
+              <button className="bg-white">
+                <p className="text-green-700 font-extrabold">
+                  Home
+                </p>
+              </button>
+            </Link> : 
+            <Link onClick={handleMenuClose} href="/" className="hover:bg-slate-100">
+              Home
+            </Link>}
+          </li>
+          <li>
             {pathname=="/about" ?
             <Link onClick={handleMenuClose} href="/about" className="">
               <button className="bg-white">
