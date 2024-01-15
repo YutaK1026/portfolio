@@ -49,7 +49,7 @@ export default function Home() {
     if(new_command === "clear"){
       setDomList([""]) //clearコマンドが入力された場合、画面をまっさらにする。
     }else{
-      setDomList((domList) => [...domList, `mysql > ${value}`])
+      setDomList((domList) => [...domList, `kawasql >${value}`])
       setDomList((domList) => [...domList, new_command])
     }
 
@@ -115,7 +115,7 @@ export default function Home() {
             })}
             {is_finish &&  
               <div className="flex" ref = {mysql_console_ref}>
-                  <p>mysql {">"}</p>
+                  <p>kawasql {">"}</p>
                   <Console text={text} handleKeyDown={handleKeyDown} setText={setText} is_disable={is_disable} ref={input_ref}/>
               </div>
             }
