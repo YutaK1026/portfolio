@@ -48,20 +48,23 @@ export default class Command {
 
         //TODO: this.commandに<>[]のいずれかが入っている場合強制的に退避
         //TODO: 日本語入力された場合退避
-
+        
+        if(this.command[this.command.length - 1] === ";"){
+            this.command = this.command.slice(0,-1)
+        }
         const word_split = this.command.split(" ")
 
-        if (word_split[0] == ("use" || "USE") && word_split.length == 2) {
+        if (((word_split[0] == "use") || (word_split[0] == "USE")) && word_split.length == 2) {
             const new_dom = this.command_use()
             return new_dom
         }
 
-        if (word_split[0] == ("show" || "SHOW")  && word_split.length == 2) {
-            if (word_split[1] == ("databases" || "DATABASES")) {
+        if ((word_split[0] == ("show") || word_split[0] == ("SHOW"))  && word_split.length == 2) {
+            if ((word_split[1] == ("databases") || word_split[1] == ("DATABASES"))) {
                 const new_dom = this.command_show_databases()
                 return new_dom
             }
-            if (word_split[1] == ("tables" || "TABLES")) {
+            if ((word_split[1] == ("tables") || word_split[1] == ("TABLES"))) {
                 const new_dom = this.command_show_tables()
                 return new_dom
             }
@@ -69,12 +72,12 @@ export default class Command {
             return new_dom
         }
 
-        if (word_split[0] == ("select" || "SELECT")) {
+        if ((word_split[0] == ("select") || word_split[0] == ("SELECT"))) {
             const new_dom = this.command_select()
             return new_dom
         }
 
-        if (word_split[0] == ("help" || "HELP") && word_split.length == 1) {
+        if (word_split[0] == ("help") && word_split.length == 1) {
             const new_dom = this.command_help()
             return new_dom
         }
@@ -113,7 +116,7 @@ export default class Command {
         const word_split: string[] = this.command.split(" ")
         if (word_split[word_split.length - 2] != "from") {
             // select から始まるのに[-2]がfromではなかった場合。
-            return CommandNotFound(this.command)
+            return CommandNotFound(word_split[word_split.length - 2])
         }
         if (word_split[1] == "*") {
             //ページリダイレクト
