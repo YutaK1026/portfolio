@@ -74,6 +74,19 @@ export default function Header() {
             </Link>}
           </li>
           <li>
+            {pathname=="/command" ?
+            <Link onClick={handleMenuClose} href="/command" className="">
+              <button className="bg-white">
+                <p className="text-green-700 font-extrabold">
+                  Command
+                </p>
+              </button>
+            </Link> : 
+            <Link onClick={handleMenuClose} href="/command" className="hover:bg-slate-100">
+              Command
+            </Link>}
+          </li>
+          <li>
             {pathname=="/contact" ?
             <Link onClick={handleMenuClose} href="/contact" className="text-green-700 font-extrabold">
               <button className="bg-white">
@@ -86,6 +99,7 @@ export default function Header() {
               Contact
             </Link>}
           </li>
+
         </ul>
       </nav>
       <button className="z-50 space-y-2 md:hidden" onClick={handleMenuOpen}>

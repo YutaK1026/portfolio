@@ -1,0 +1,26 @@
+{
+    "table":{
+        "kawachann":{
+            "about":{
+                "name": "about",
+                "created_at": "2024/1/11",
+                "updated_at": "2024/1/11"
+            },
+            "works":{
+                "name": "work",
+                "created_at": "2024/1/11",
+                "updated_at": "2024/1/11"
+            },
+            "skill":{
+                "name": "skill",
+                "created_at": "2024/1/11",
+                "updated_at": "2024/1/11"
+            },
+            "contact":{
+                "name": "contact",
+                "created_at": "2024/1/11",
+                "updated_at": "2024/1/11"
+            }
+        }
+    }
+}
