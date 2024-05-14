@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useRef } from 'react'
 import CommandList from '@/components/pages/command/hooks/command'
 import { redirect } from 'next/navigation'

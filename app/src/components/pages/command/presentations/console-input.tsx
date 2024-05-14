@@ -17,4 +17,4 @@ function consoleComponent({text, handleKeyDown, setText, is_disable}: ConsolePro
     />)
 }
 
-export const Console = forwardRef<HTMLInputElement, ConsoleProps>(consoleComponent)
+export const ConsoleInput = forwardRef<HTMLInputElement, ConsoleProps>(consoleComponent)
