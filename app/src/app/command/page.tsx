@@ -1,4 +1,5 @@
 "use client"
+
 import { useEffect, useState } from 'react'
 import { useRef } from 'react'
 import Command from '@/components/Typing/command'

@@ -7,37 +7,10 @@ import CommandNotFoundTable from "./CommandDom/Show/command_not_found_table"
 import CommandRedirect from "./CommandDom/Select/command_redirect"
 import CommandHelp from "./CommandDom/Help/command_help"
 import CommandClear from "./CommandDom/Clear/command_clear"
-
+import { DatabaseProps } from "@/libs/command/command-props"
 import { redirect } from 'next/navigation'
 
-const database: Database = require("./database.json")
-
-interface Database{
-    table:{
-        kawachann: {
-            about: {
-                name: string
-                created_at: string
-                updated_at: string
-            }
-            work: {
-                name: string
-                created_at: string
-                updated_at: string
-            }
-            skill: {
-                name: string
-                created_at: string
-                updated_at: string
-            }
-            contact: {
-                name: string
-                created_at: string
-                updated_at: string
-            }
-        }
-    }
-}
+const database: DatabaseProps = require("./database.json")
 
 export default class Command {
     command: string
@@ -119,7 +92,7 @@ export default class Command {
             return CommandNotFound(word_split[word_split.length - 2])
         }
         if (word_split[1] == "*") {
-            //ページリダイレクト
+            //　ページリダイレクト
             const address = word_split[3]
             const is_exist: boolean = address in database.table.kawachann
             if(is_exist) { 
@@ -127,7 +100,6 @@ export default class Command {
             }
             return CommandNotFoundTable(address)
         }
-        
         return CommandNotFound(word_split[1])
     }
     command_help(): string{
