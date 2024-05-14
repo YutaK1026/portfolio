@@ -11,7 +11,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const [isPcType, setIsPcType] = useState(false)
+  const [isPcType, setIsPcType] = useState(true)
+
   useEffect(() => {
     const mobileTypeList = ["iPhone", "iPad", "iPod", "Android"];
     const machineType = navigator.userAgent;
@@ -24,7 +25,8 @@ export default function RootLayout({
       setIsPcType(true)
     }
     console.log(machineType)
-  })
+  },[])
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -36,9 +38,10 @@ export default function RootLayout({
               {children}
             </div>
           </div>:
-          <div>a</div>
+          <div>
+            SmartPhone Page
+          </div>
         }
-        
       </body>
     </html>
   )
