@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 
-
-export const Typing = ({handleFinish}: {handleFinish:()=>void}) => {
+export const Typing = ({handleFinish}: {handleFinish: () => void}) => {
   return (
     <TypeAnimation
       cursor = {false}

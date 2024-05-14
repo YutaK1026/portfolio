@@ -1,45 +1,18 @@
-import CommandNotFoundUse from "./CommandDom/Use/command_not_found_use"
-import CommandUse from "./CommandDom/Use/command_use"
-import CommandNotFound from "./CommandDom/command_not_found"
-import CommandShowDatabase from "./CommandDom/Show/command_show_databases"
-import CommandShowTables from "./CommandDom/Show/command_show_tables"
-import CommandNotFoundTable from "./CommandDom/Show/command_not_found_table"
-import CommandRedirect from "./CommandDom/Select/command_redirect"
-import CommandHelp from "./CommandDom/Help/command_help"
-import CommandClear from "./CommandDom/Clear/command_clear"
-
+import CommandNotFoundUse from "@/components/pages/command/hooks/use/command_not_found_use"
+import CommandUse from "@/components/pages/command/hooks/use/command_use"
+import CommandNotFound from "@/components/pages/command/hooks/not-found/command_not_found"
+import CommandShowDatabase from "@/components/pages/command/hooks/show/command_show_databases"
+import CommandShowTables from "@/components/pages/command/hooks/show/command_show_tables"
+import CommandNotFoundTable from "@/components/pages/command/hooks/show/command_not_found_table"
+import CommandRedirect from "@/components/pages/command/hooks/select/command_redirect"
+import CommandHelp from "@/components/pages/command/hooks/help/command_help"
+import CommandClear from "@/components/pages/command/hooks/clear/command_clear"
+import { DatabaseProps } from "@/libs/command/command-props"
 import { redirect } from 'next/navigation'
 
-const database: Database = require("./database.json")
+const database: DatabaseProps = require("@/components/pages/command/libs/database.json")
 
-interface Database{
-    table:{
-        kawachann: {
-            about: {
-                name: string
-                created_at: string
-                updated_at: string
-            }
-            work: {
-                name: string
-                created_at: string
-                updated_at: string
-            }
-            skill: {
-                name: string
-                created_at: string
-                updated_at: string
-            }
-            contact: {
-                name: string
-                created_at: string
-                updated_at: string
-            }
-        }
-    }
-}
-
-export default class Command {
+export default class CommandList {
     command: string
     constructor(command: string){
         this.command = command
@@ -119,7 +92,7 @@ export default class Command {
             return CommandNotFound(word_split[word_split.length - 2])
         }
         if (word_split[1] == "*") {
-            //ページリダイレクト
+            //　ページリダイレクト
             const address = word_split[3]
             const is_exist: boolean = address in database.table.kawachann
             if(is_exist) { 
@@ -127,7 +100,6 @@ export default class Command {
             }
             return CommandNotFoundTable(address)
         }
-        
         return CommandNotFound(word_split[1])
     }
     command_help(): string{

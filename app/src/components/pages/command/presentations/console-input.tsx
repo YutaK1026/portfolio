@@ -1,13 +1,6 @@
-import { useRef } from "react"
 import { Ref } from "react"
 import { forwardRef } from 'react';
-
-interface ConsoleProps{
-    text: string
-    handleKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void
-    setText: (value: string) => void
-    is_disable: boolean
-}
+import { ConsoleProps } from "@/libs/command/command-props";
 
 function consoleComponent({text, handleKeyDown, setText, is_disable}: ConsoleProps, ref: Ref<HTMLInputElement>):React.JSX.Element {
     return(
@@ -23,4 +16,5 @@ function consoleComponent({text, handleKeyDown, setText, is_disable}: ConsolePro
         }}
     />)
 }
-export const Console = forwardRef<HTMLInputElement, ConsoleProps>(consoleComponent)
+
+export const ConsoleInput = forwardRef<HTMLInputElement, ConsoleProps>(consoleComponent)

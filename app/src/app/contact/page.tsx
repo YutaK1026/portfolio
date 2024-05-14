@@ -1,4 +1,5 @@
-import Contact from "@/components/pages/skill"
+import Contact from "@/components/pages/contact/index"
+
 export default function ContactPage() {
   return (
     <div>
