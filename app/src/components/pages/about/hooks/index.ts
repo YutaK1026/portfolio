@@ -1,4 +1,4 @@
-type useAboutProps = () => {
+type useAbout = () => {
   src: string
   imageStyle: {
     borderRadius: string
@@ -10,7 +10,7 @@ type useAboutProps = () => {
   }
 }
 
-export const useAbout: useAboutProps = () => {
+export const useAbout: useAbout = () => {
   const src: string = "/props/about/home.webp"
   const imageStyle = {
     borderRadius: '2%',

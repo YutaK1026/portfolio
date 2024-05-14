@@ -1,29 +1,42 @@
-import { RefObject } from "react"
+import CommandList from '@/components/pages/command/hooks/command'
+
+import { RefObject, SetStateAction } from "react"
+import {JetBrains_Mono} from "next/font/google"
 
 type useCommandProps = {
-  text: string,
-  setText: (text: string) => void,
-  is_finish: boolean,
-  setIsFinish: (is_finish: boolean) => void,
-  is_disable: boolean,
-  setIsDisable: (is_disable: boolean) => void,
-  domList: string[],
-  setDomList: (domList: string) => void,
-  commandList: string[],
-  setCommandList: (CommandList: string[]) => void,
-  is_redirect: boolean,
-  setIsRedirect: (is_redirect: boolean) => void,
-  value: string,
-  setValue: (value: string) => void,
-  address: string,
-  setAddress: (address: string) => void,
-  mysql_console_ref: RefObject<HTMLDivElement>,
-  input_ref: RefObject<HTMLInputElement>,
-  
+  setText:            (text: string) => void,
+  setDomList:         (domList: SetStateAction<string[]>) => void,
+  commandList:        string[],
+  setCommandList:     (CommandList:  SetStateAction<string[]>) => void,
+  setIsRedirect:      (is_redirect: boolean) => void,
+  setValue:           (value: string) => void,
+  setAddress:         (address: string) => void,
+  setIsFinish:        (is_finish: SetStateAction<boolean>) => void,
+  mysql_console_ref:  RefObject<HTMLDivElement>,
+  input_ref:          RefObject<HTMLInputElement>,
+  i:                  number
 }
 
-export const useCommand = (
-  ) => {
+type useCommand = {
+  handleClick:    () => void;
+  handleKeyDown:  (e: React.KeyboardEvent<HTMLInputElement>) => Promise<void>;
+  handleFinish:   () => void;
+}
+
+export const useCommand = ({
+    setText, 
+    setDomList, 
+    commandList, 
+    setCommandList, 
+    setIsRedirect, 
+    setValue, 
+    setAddress, 
+    setIsFinish,
+    mysql_console_ref, 
+    input_ref, 
+    i}: useCommandProps
+  ): useCommand => {
+
   const handleSubmit = (
     e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLInputElement>,
   ) => {
@@ -43,7 +56,7 @@ export const useCommand = (
     if(new_command === "clear"){
       setDomList([""]) //clearコマンドが入力された場合、画面をまっさらにする。
     }else{
-      setDomList((domList) => [...domList, `kawasql >${value}`])
+      setDomList((domList: string[]) => [...domList, `kawasql >${value}`])
       setDomList((domList) => [...domList, new_command])
     }
 
@@ -85,4 +98,19 @@ export const useCommand = (
         // TODO: カーソルを末尾に移動するようにする。
       }
   }
+
+  const handleFinish = () => {
+    setIsFinish(true)
+  }
+
+  return {
+    handleClick,
+    handleKeyDown,
+    handleFinish
+  }
 }
+
+export const JetBrainsMonoFont = JetBrains_Mono({
+  weight: "400",
+  subsets: ["latin"],
+});

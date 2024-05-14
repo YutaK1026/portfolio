@@ -1,4 +1,4 @@
-type useSkillProps = () => {
+type useSkill = () => {
   title: string
   frontend: {
     name: string
@@ -14,7 +14,7 @@ type useSkillProps = () => {
   }[]
 }
 
-export const useSkill: useSkillProps = () => {
+export const useSkill: useSkill = () => {
   const title = "Skill"
   const frontend = [
     {name:"TypeScript", description:"webページのフロントエンド開発に使用しています。\n静的型付けが出来るのが気に入っています。"},

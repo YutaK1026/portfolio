@@ -1,8 +1,8 @@
-type useContactProps = () => {
+type useContact = () => {
   title: string
 }
 
-export const useContact: useContactProps = () => {
+export const useContact: useContact = () => {
   const title = "Contact"
 
   return {

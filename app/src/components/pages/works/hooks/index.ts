@@ -1,4 +1,4 @@
-type useWorksProps = () => {
+type useWorks = () => {
   title: string
   works: {
     name: string
@@ -7,7 +7,7 @@ type useWorksProps = () => {
   }[]
 }
 
-export const useWorks: useWorksProps = () => {
+export const useWorks: useWorks = () => {
   const title = "Works"
   const works = [
     {name:"CODE_DUEL", description:"大学2年生のハッカソンで作成したwebアプリです。DDDを採用しバックエンド全般の開発・デプロイを行っています。", url:"https://code-duel.onrender.com/"},
