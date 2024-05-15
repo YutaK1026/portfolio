@@ -26,7 +26,7 @@ export default function AboutMe() {
             </div>
             <br/>
             <div className="flex items-center justify-center">
-              <p className='text-sm'>名古屋大学情報学部コンピューター科学科3年知能システム系</p>
+              <p className='text-sm'>名古屋大学情報学部コンピューター科学科4年知能システム系</p>
             </div>
           </div>
         </div>

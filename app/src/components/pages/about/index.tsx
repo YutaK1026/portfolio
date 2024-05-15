@@ -1,15 +1,16 @@
-'use client'
-import Image from 'next/image'
-import { useEffect } from 'react'
-import Introduce from '@/components/pages/about/presentations/introduce'
-import AboutMe from '@/components/pages/about/presentations/about-me'
+"use client"
 
-export default function AboutPage() {
+import { useCheckDeviceType } from '@/components/pages/hooks/index'
+import AboutPresentation from '@/components/pages/about/presentations/index'
 
+export default function About() {
+  const {isPC, isLoading} = useCheckDeviceType()
   return (
     <>
-      <AboutMe />
-      <Introduce />
+      <AboutPresentation 
+        isPC={isPC} 
+        isLoading={isLoading} 
+      />
     </>
   )
 }

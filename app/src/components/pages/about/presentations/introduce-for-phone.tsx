@@ -1,12 +1,11 @@
 import Image from "next/image";
 import { useAbout } from '@/components/pages/about/hooks/index'
 
-export default function Introduce() {
+export default function IntroduceForPhone() {
   const {src, imageStyle, title, icon_style} = useAbout()
 
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(30rem,1fr))] m-5">
-
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(12rem,1fr))] m-5">
       <div className="m-3">
         <div className="text-lg mb-2 font-semibold">
           {title}
