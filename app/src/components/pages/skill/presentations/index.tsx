@@ -1,4 +1,4 @@
-import { Loading } from '@/components/loading'
+import { Loading } from '@/components/loading/index'
 import SkillList from '@/components/pages/skill/presentations/skill-list'
 
 type SkillPresentationProps = {

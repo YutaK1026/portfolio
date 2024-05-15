@@ -1,4 +1,4 @@
-import { Loading } from '@/components/loading'
+import { Loading } from '@/components/loading/index'
 import WorkList from '@/components/pages/works/presentations/work-list'
 
 type WorkPresentationProps = {
