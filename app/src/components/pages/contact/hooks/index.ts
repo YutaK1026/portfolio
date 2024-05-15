@@ -59,3 +59,11 @@ export const useContact = ({
     handleSendMail
   }
 }
+
+export const useContactTitle = () => {
+  const title = "お問い合わせフォーム"
+  
+  return {
+    title
+  }
+}
