@@ -13,11 +13,11 @@ export default function AboutPresentation({isPC, isLoading}: AboutPresentationPr
       {isLoading? <Loading/>:
         isPC? 
         <div>
-          <AboutMe />
+          <AboutMe isPC={true} />
           <Introduce wrapSize="30"/>
         </div>:
         <div>
-          <AboutMe />
+          <AboutMe isPC={false} />
           <Introduce wrapSize="12"/>
         </div>
       }
