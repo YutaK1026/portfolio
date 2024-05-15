@@ -1,6 +1,5 @@
 import Introduce from '@/components/pages/about/presentations/introduce'
 import AboutMe from '@/components/pages/about/presentations/about-me'
-import IntroduceForPhone from '@/components/pages/about/presentations/introduce-for-phone'
 import { Loading } from '@/components/loading'
 
 type AboutPresentationProps = {
@@ -15,11 +14,11 @@ export default function AboutPresentation({isPC, isLoading}: AboutPresentationPr
         isPC? 
         <div>
           <AboutMe />
-          <Introduce />
+          <Introduce wrapSize="30"/>
         </div>:
         <div>
           <AboutMe />
-          <IntroduceForPhone />
+          <Introduce wrapSize="12"/>
         </div>
       }
     </>

@@ -5,7 +5,11 @@ import Skill from '@/components/pages/skill/presentations/skill-item'
 import { SkillProps } from '@/libs/skill/skill-props'
 import { useSkill } from '@/components/pages/skill/hooks/index'
 
-export default function SkillList() {
+type SkillListProps = {
+  wrapSize: string
+}
+
+export default function SkillList({wrapSize}: SkillListProps) {
   const {title, frontend, backend, others} = useSkill()
   
   return (
@@ -16,7 +20,7 @@ export default function SkillList() {
       <p className='font-bold text-2xl m-2'>
         - Frontend
       </p>
-      <div className="grid grid-cols-3 content-center grid-cols-[repeat(auto-fill,minmax(20rem,1fr))]">
+      <div className={`grid grid-cols-3 content-center grid-cols-[repeat(auto-fill,minmax(${wrapSize}rem,1fr))]`}>
         {frontend.map((item:SkillProps, index) => {
           return( 
             <div  key={index} className="grid-item">
@@ -30,7 +34,7 @@ export default function SkillList() {
       <p className='font-bold text-2xl m-2'>
         - Backend
       </p>
-      <div className="grid grid-cols-3 content-center grid-cols-[repeat(auto-fill,minmax(20rem,1fr))]">
+      <div className={`grid grid-cols-3 content-center grid-cols-[repeat(auto-fill,minmax(${wrapSize}rem,1fr))]`}>
         {backend.map((item:SkillProps, index) => {
           return( 
             <div  key={index} className="grid-item">
@@ -44,7 +48,7 @@ export default function SkillList() {
       <p className='font-bold text-2xl m-2'>
         - Others
       </p>
-      <div className="grid grid-cols-3 content-center grid-cols-[repeat(auto-fill,minmax(20rem,1fr))]">
+      <div className={`grid grid-cols-3 content-center grid-cols-[repeat(auto-fill,minmax(${wrapSize}rem,1fr))]`}>
         {others.map((item:SkillProps, index) => {
           return( 
             <div  key={index} className="grid-item">

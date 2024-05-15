@@ -3,7 +3,7 @@ import { useAbout } from '@/components/pages/about/hooks/index'
 
 export default function AboutMe() {
   const {src, imageStyle, title, icon_style} = useAbout()
-
+  // TODO: スマホ版サイトで名前を自己紹介が変な風に表示される問題を対応
   return (
     <div>
       <div className="grid grid-cols-5 content-center m-1">

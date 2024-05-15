@@ -1,11 +1,15 @@
 import Image from "next/image";
 import { useAbout } from '@/components/pages/about/hooks/index'
 
-export default function Introduce() {
+type IntroduceProps = {
+  wrapSize: string
+}
+
+export default function Introduce({wrapSize}: IntroduceProps) {
   const {src, imageStyle, title, icon_style} = useAbout()
 
   return (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(30rem,1fr))] m-5">
+    <div className={`grid grid-cols-[repeat(auto-fill,minmax(${wrapSize}rem,1fr))] m-5`}>
 
       <div className="m-3">
         <div className="text-lg mb-2 font-semibold">
@@ -21,7 +25,7 @@ export default function Introduce() {
       </div>
       
       <div className="m-3">
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(12rem,1fr))]">
+        <div className={`grid grid-cols-[repeat(auto-fill,minmax(12rem,1fr))]`}>
           <div className="grid-item col-span-2">
             <div className="text-lg mb-2 font-semibold">
               Contact to me
