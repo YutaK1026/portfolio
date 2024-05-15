@@ -1,9 +1,17 @@
-import SkillList from '@/components/pages/skill/presentations/skill-list'
+"use client"
+
+import { useCheckDeviceType } from '@/components/pages/hooks/index'
+import SkillPresentation from '@/components/pages/skill/presentations/index'
 
 export default function Skill() {
+	const {isPC, isLoading} = useCheckDeviceType()
+  
 	return (
 		<>
-			<SkillList />
+			<SkillPresentation 
+				isPC={isPC} 
+				isLoading={isLoading}
+			/>
 		</>
 	)
 }
