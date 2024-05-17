@@ -13,7 +13,7 @@ export default function WorkList({wrapSize}: WorkListProps) {
     <div className={`grid grid-cols-2 content-center grid-cols-[repeat(auto-fill,minmax(${wrapSize}rem,1fr))]`}>
       {works.map((item: WorkProps, index) => {
         return( 
-          <div  key={index} className="grid-item flex mx-auto">
+          <div  key={index} className="grid-item mx-auto">
             <WorkItem
               name={item.name} 
               description={item.description}

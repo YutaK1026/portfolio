@@ -1,6 +1,3 @@
-import Image from 'next/image'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
 import Skill from '@/components/pages/skill/presentations/skill-item'
 import { SkillProps } from '@/libs/skill/skill-props'
 import { useSkill } from '@/components/pages/skill/hooks/index'

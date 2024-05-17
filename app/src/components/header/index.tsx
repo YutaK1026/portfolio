@@ -36,7 +36,7 @@ export default function Header() {
           <li>
             {pathname=="/about" ?
             <Link onClick={handleMenuClose} href="/about" className="">
-              <button className="bg-white">
+              <button>
                 <p className="text-green-700 font-extrabold">
                   About 
                 </p>
@@ -49,7 +49,7 @@ export default function Header() {
           <li>
             {pathname=="/works" ?
             <Link onClick={handleMenuClose} href="/works" className="text-green-700 font-extrabold">
-              <button className="bg-white">
+              <button>
                 <p className="text-green-700 font-extrabold">
                   Work 
                 </p>
@@ -62,7 +62,7 @@ export default function Header() {
           <li>
             {pathname=="/skill" ?
             <Link onClick={handleMenuClose} href="/skill" className="text-green-700 font-extrabold">
-              <button className="bg-white">
+              <button>
                 <p className="text-green-700 font-extrabold">
                   Skill
                 </p>
@@ -75,7 +75,7 @@ export default function Header() {
           <li>
             {pathname=="/command" ?
             <Link onClick={handleMenuClose} href="/command" className="">
-              <button className="bg-white">
+              <button>
                 <p className="text-green-700 font-extrabold">
                   Command
                 </p>
@@ -88,7 +88,7 @@ export default function Header() {
           <li>
             {pathname=="/contact" ?
             <Link onClick={handleMenuClose} href="/contact" className="text-green-700 font-extrabold">
-              <button className="bg-white">
+              <button>
                 <p className="text-green-700 font-extrabold">
                   Contact
                 </p>
