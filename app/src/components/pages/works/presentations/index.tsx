@@ -10,7 +10,7 @@ export default function WorkPresentation({isPC, isLoading}: WorkPresentationProp
 	return (
 		<>
       {isLoading? <Loading/>:
-        isPC? <WorkList wrapSize="30" />:<WorkList wrapSize="11" />
+        isPC? <WorkList wrapSize="30" />:<WorkList wrapSize="12" />
       }
     </>
 	)
